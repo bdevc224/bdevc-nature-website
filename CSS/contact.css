@@ -1,0 +1,432 @@
+/* ===== CONTACT.CSS - FULLY RESPONSIVE ===== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: url(/Images/waterfall.JPG) no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* Page transitions */
+.page {
+  opacity: 0;
+  animation: pageFadeIn 0.6s ease forwards;
+}
+
+@keyframes pageFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.page-exit {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* ===== Universal fade system ===== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional directions */
+.reveal-left {
+  transform: translateX(-40px);
+}
+
+.reveal-right {
+  transform: translateX(40px);
+}
+
+.reveal-left.is-visible,
+.reveal-right.is-visible {
+  transform: translateX(0);
+}
+
+
+/* ===== HEADER STYLES ===== */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    backdrop-filter: saturate(140%) blur(6px);
+    background: linear-gradient(180deg, #0a0c12e6, #0a0c12a6);
+    position: relative;
+    z-index: 1000;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.logo h3 {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+    color: white;
+}
+
+.highlight {
+    color: #07c507;
+}
+
+.theme-btn {
+    background: #228b22;
+    color: white;
+    border: none;
+    width: clamp(90px, 20vw, 130px);
+    height: clamp(35px, 8vw, 45px);
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-size: clamp(0.7rem, 3vw, 0.9rem);
+}
+
+.theme-btn:hover {
+    background: #07c507;
+    transform: scale(1.05);
+}
+
+/* ===== NAVBAR STYLES ===== */
+nav {
+    position: relative;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    cursor: pointer;
+    display: none;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    z-index: 1001;
+}
+
+.menu-icon span {
+    background: #fff;
+    display: block;
+    height: 4px;
+    width: 100%;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    background: none;
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow-y: visible;
+}
+
+nav ul li {
+    padding: 0;
+    border-bottom: none;
+    margin-top: 0;
+}
+
+nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    padding-bottom: 6px;
+    display: inline-block;
+}
+
+nav ul li a.active {
+    color: #07c507;
+}
+
+nav ul li a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #07c507;
+    border-radius: 2px;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    background: rgba(22, 71, 2, 0.15);
+    backdrop-filter: blur(3px);
+    border: 1px solid #ccc;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    border-radius: 20px;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.hero-text h1 {
+    color: #07c507;
+    font-size: clamp(2rem, 6vw, 7rem);
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+/* ===== FORM STYLES ===== */
+form {
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+    width: 90%;
+    max-width: 600px;
+    background: rgba(29, 83, 7, 0.15);
+    backdrop-filter: blur(3px);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 30px;
+
+    box-shadow: 0 8px 30px #00000099;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+}
+
+form label {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+form input,
+form textarea {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    color: #fff;
+    width: 100%;
+    font-size: 1rem;
+}
+
+form input:focus,
+form textarea:focus {
+    outline: none;
+    border: 2px solid #07c507;
+}
+
+form button {
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    background: #3d6c18;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+form button:hover {
+    background: #67761f;
+    transform: scale(1.02);
+}
+
+/* ===== SOCIALS ===== */
+.socials {
+    background: rgba(29, 83, 7, 0.15);
+    backdrop-filter: blur(3px);
+    border: 1px solid #ccc;
+    min-height: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 20px;
+    margin: 40px 5%;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 8px 30px #00000099;
+}
+
+.socials a {
+    color: #fff;
+    text-decoration: none;
+    font-size: clamp(0.9rem, 3vw, 1.3rem);
+    transition: all 0.3s ease;
+}
+
+.socials a:hover {
+    color: #ccebcc;
+    text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    backdrop-filter: saturate(140%) blur(6px);
+    background: linear-gradient(180deg, rgba(10,12,18,.9), rgba(10,12,18,.65));
+    color: #ffffff;
+    padding: 2rem;
+    font-size: clamp(0.8rem, 3vw, 1.2rem);
+    text-align: center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    header {
+        padding: 0.8rem 4%;
+    }
+    
+    .logo h3 {
+        font-size: 1.2rem;
+    }
+    
+    .theme-btn {
+        width: 90px;
+        height: 35px;
+        font-size: 0.7rem;
+    }
+    
+    .menu-icon {
+        display: block;
+    }
+    
+    nav ul {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        backdrop-filter: saturate(140%) blur(6px);
+        background: linear-gradient(180deg, #0a0c12e6, #0a0c12a6);
+        flex-direction: column;
+        gap: 0;
+        padding: 80px 20px 20px;
+        transition: left 0.3s ease-in-out;
+        z-index: 1000;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    nav ul li {
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+    }
+    
+    nav ul li a {
+        font-size: 1.1rem;
+        display: block;
+        width: 100%;
+    }
+    
+    #menu-toggle:checked ~ ul {
+        left: 0;
+    }
+    
+    #menu-toggle:checked ~ .menu-icon .line1 {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    #menu-toggle:checked ~ .menu-icon .line2 {
+        opacity: 0;
+    }
+    
+    #menu-toggle:checked ~ .menu-icon .line3 {
+        transform: rotate(-45deg) translate(7px, -7px);
+    }
+    
+    .hero {
+        width: 95%;
+        padding: 40px 15px;
+        margin: 30px auto;
+    }
+    
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-text p {
+        font-size: 1rem;
+    }
+    
+    form {
+        width: 95%;
+        padding: 20px;
+    }
+    
+    form h1 {
+        font-size: 1.5rem;
+    }
+    
+    form input,
+    form textarea {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .socials {
+        flex-direction: column;
+        text-align: center;
+        margin: 30px 5%;
+    }
+    
+    .socials a {
+        font-size: 0.9rem;
+    }
+    
+    footer {
+        padding: 1.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 30px 10px;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.5rem;
+    }
+    
+    form {
+        padding: 15px;
+    }
+    
+    form button {
+        padding: 10px;
+    }
+}

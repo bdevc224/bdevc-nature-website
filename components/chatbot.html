@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>BDevC NatureBot - Your Nature Guide</title>
+    <link rel="stylesheet" href="chatbot.css">
+    <link rel="icon" href="/Images/peacock.JPG">
+</head>
+<body>
+    <!-- Chatbot Button -->
+    <div class="chatbot-button" id="chatbotButton">
+        <div class="chatbot-icon">
+            🌿
+        </div>
+        <div class="notification-badge" id="notificationBadge">1</div>
+    </div>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <div class="header-content">
+                <div class="bot-avatar">☘️</div>
+                <div class="bot-info">
+                    <h3>BDevC NatureBot</h3>
+                    <p>Your Nature Guide & Adventure Planner</p>
+                </div>
+            </div>
+            <button class="close-btn" id="closeChatbot">✕</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    Hello! I'm BDevC NatureBot, your personal guide to everything nature!<br><br>
+                    I can help you with:
+                    Fascinating nature facts<br>
+                    Horrifying nature phenomena<br>
+                    Human-nature interactions<br>
+                    Conservation & sustainability tips<br>
+                    Travel, tours & adventure planning<br>
+                    Recommendations for natural sites<br><br>
+                    What would you like to know about today?
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-options" id="chatOptions">
+            <button class="option-btn" data-query="facts">Nature Facts</button>
+            <button class="option-btn" data-query="horrors">Nature Horrors</button>
+            <button class="option-btn" data-query="interaction">Human Interaction</button>
+            <button class="option-btn" data-query="conservation">Conservation</button>
+            <button class="option-btn" data-query="travel">Travel & Tours</button>
+            <button class="option-btn" data-query="places">Places to Visit</button>
+            <button class="option-btn" data-query="services">Our Services</button>
+            <button class="option-btn" data-query="contact">Contact Info</button>
+        </div>
+
+        <div class="chat-input-area">
+            <input type="text" id="chatInput" placeholder="Ask me anything about nature..." class="chat-input">
+            <button id="sendMessage" class="send-btn">Send</button>
+        </div>
+    </div>
+
+    <script src="chatbot.js"></script>
+</body>
+</html>

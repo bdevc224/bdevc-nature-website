@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDevC Nature | Home</title>
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="./Images/peacock.JPG">
+</head>
+<body>
+    <div class="page">
+    <!-- Android-style Side Button -->
+    <div class="side-menu-btn" id="sideMenuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Side Menu -->
+    <div class="hero_contents" id="sideMenu">
+        <aside>
+            <ul>
+                <li><a href="./components/dashboard.html">🏠 Dashboard</a></li>
+                <li><a href="./components/app.html">📱 Apps</a></li>
+                <li><a href="./components/chatbot.html">🤖 Chatbot</a></li>
+                <li><a href="./components/customer-service.html">💬 Customer Service</a></li>
+                <li><a href="./components/settings.html">⚙️ Settings</a></li>
+            </ul>
+        </aside>
+    </div>
+
+    <!-- Main Content Wrapper (gets pushed) -->
+    <div class="main-content-wrapper" id="mainContentWrapper">
+        <header>
+            <div class="logo">
+                <h3 class="reveal reveal-left">BDevC <span class="highlight">Nature</span></h3>
+            </div>
+            
+            <nav>
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon reveal reveal-left">
+                    <span class="line1"></span>
+                    <span class="line2"></span>
+                    <span class="line3"></span>
+                </label>
+                
+                <ul class="reveal reveal-left">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button id="themeToggle" class="theme-btn reveal reveal-right" aria-label="Green/Light Mode">
+                Green Mode
+            </button>
+        </header>
+
+        <div class="hero">
+            <video 
+                src="/Videos/nature_vid.mp4" 
+                autoplay 
+                muted 
+                loop 
+                preload="auto"
+                width="100%"
+            >
+            </video>
+
+            <div class="hero-text">
+                <h1 class="reveal reveal-left">NATURE IS BEAUTIFUL</h1>
+                <p class="reveal reveal-left">Learn fascinating things about nature and how we interact with it, both humans and animals alike.</p>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <h1 class="reveal">Did You Know</h1>
+
+        <div class="section_content">
+            <div class="section_info reveal reveal-left">
+                <img 
+                    src="./Images/tree_roots.JPG" 
+                    alt="Tree roots Wood wide web" 
+                    loading="lazy"
+                >
+                <h3>Tree Communication</h3>
+                <p>
+                    Trees communicates using an underground fungal network, sometimes called the Wood Wide Web to share 
+                    nutrients and send warnings about droughts or insect attacks.
+                </p>
+            </div>
+
+            <div class="section_info reveal">
+                <img 
+                    src="./Images/nature13.JPG" 
+                    alt="Trees"
+                    loading="lazy"
+                >
+                <h3>Tree Population</h3>
+                <p>
+                    There are over three (3) trillion trees on earth, which is about 12 times more than the estimated 
+                    stars in the Milky Way.
+                </p>
+            </div>
+
+            <div class="section_info reveal reveal-right">
+                <img 
+                    src="./Images/peacock7.JPG" 
+                    alt="Peacock"
+                    loading="lazy"
+                >
+                <h3>Peacock's Life Span</h3>
+                <p>In the wild Peacocks can live for 20 years, but in captivity, they can live up to 40 years.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h1>More Facts</h1>
+
+        <div class="section_content">
+            <div class="section_info reveal reveal-left">
+                <img 
+                    src="./Images/hurricane.JPG" 
+                    alt="Peacock"
+                    loading="lazy"
+                >
+                <h3>Energy of The Hurricane</h3>
+                <p>A single mature hurricane can release the energy equivalent of 10,000 atomic bombs in its rainfall alone.</p>
+            </div>
+
+            <div class="section_info reveal">
+                <img 
+                    src="./Images/octopus2.JPG" 
+                    alt="Peacock"
+                    loading="lazy"
+                >
+                <h3>Three-Hearted Octopus</h3>
+                <p>The octopus has three hearts, two pumps blood to the gills, while the third pumps it to the rest of its body.</p>
+            </div>
+
+            <div class="section_info reveal reveal-right">
+                <img 
+                    src="./Images/nature9.JPG" 
+                    alt="Peacock"
+                    loading="lazy"
+                >
+                <h3>Tree Life Spans</h3>
+                <p>Trees don't die of old age, they can live for thousands of years. The oldest known non-clonal tree is a bristlecone pine over 5,000 years old located at California's Inyo National Forest.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <p>Copyright © <span id="year"></span> BDevC <span class="highlight">Nature</span></p>
+    </footer>
+    </div>
+
+    <script src="/JS/index.js"></script>
+</body>
+</html>

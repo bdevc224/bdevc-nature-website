@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>BDevC Nature | Customer Service</title>
+    <link rel="stylesheet" href="customer-service.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Images/peacock.JPG">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="cs-container">
+        <!-- Header -->
+        <header class="cs-header">
+            <div class="logo">
+                <h2>BDevC <span class="highlight">Nature</span></h2>
+                <p>Customer Service</p>
+            </div>
+            <div class="header-actions">
+                <a href="/index.html" class="home-link">🏠 Home</a>
+                <button class="theme-toggle-cs" id="themeToggle">🌙</button>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <div class="cs-hero">
+            <div class="cs-hero-content">
+                <h1>How can we help you today? 🌿</h1>
+                <p>We're here to make your nature adventures unforgettable</p>
+                <div class="search-box">
+                    <input type="text" id="searchFaq" placeholder="Search for answers..." class="search-input-cs">
+                    <button class="search-btn-cs">🔍</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Help Categories -->
+        <div class="quick-help">
+            <div class="help-card" onclick="scrollToSection('faq')">
+                <div class="help-icon">❓</div>
+                <h3>FAQ</h3>
+                <p>Frequently asked questions</p>
+            </div>
+            <div class="help-card" onclick="openLiveChat()">
+                <div class="help-icon">💬</div>
+                <h3>Live Chat</h3>
+                <p>Chat with an agent</p>
+            </div>
+            <div class="help-card" onclick="scrollToSection('ticket')">
+                <div class="help-icon">🎫</div>
+                <h3>Support Ticket</h3>
+                <p>Submit a request</p>
+            </div>
+            <div class="help-card" onclick="scrollToSection('contact')">
+                <div class="help-icon">📞</div>
+                <h3>Contact Us</h3>
+                <p>Call or email</p>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="cs-section" id="faqSection">
+            <h2 class="section-title">📖 Frequently Asked Questions</h2>
+            <div class="faq-categories">
+                <button class="faq-cat-btn active" data-cat="general">General</button>
+                <button class="faq-cat-btn" data-cat="booking">Booking</button>
+                <button class="faq-cat-btn" data-cat="travel">Travel</button>
+                <button class="faq-cat-btn" data-cat="payment">Payment</button>
+                <button class="faq-cat-btn" data-cat="refund">Refund</button>
+                <button class="faq-cat-btn" data-cat="conservation">Conservation</button>
+            </div>
+            <div class="faq-list" id="faqList"></div>
+        </div>
+
+        <!-- Live Chat Widget (Hidden by default) -->
+        <div class="chat-widget" id="chatWidget">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <div class="chat-avatar">🌿</div>
+                    <div>
+                        <h4>NatureBot Support</h4>
+                        <p>Usually replies in minutes</p>
+                    </div>
+                </div>
+                <button class="close-chat" id="closeChat">✕</button>
+            </div>
+            <div class="chat-messages-cs" id="chatMessagesCs">
+                <div class="message-cs bot">
+                    <div class="message-avatar-cs">🌿</div>
+                    <div class="message-bubble-cs">
+                        Hello! Welcome to BDevC Nature Customer Service! 👋<br><br>
+                        How can I help you today? You can ask about:
+                        • Bookings & reservations
+                        • Travel destinations
+                        • Payment issues
+                        • Refunds & cancellations
+                        • Conservation programs
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-cs">
+                <input type="text" id="chatMessageInput" placeholder="Type your message..." class="chat-message-input">
+                <button id="sendChatMessage" class="send-message-btn">Send</button>
+            </div>
+            <div class="chat-quick-actions">
+                <button class="quick-msg" data-msg="I need help with my booking">📅 Booking Help</button>
+                <button class="quick-msg" data-msg="I want to cancel my trip">❌ Cancel Trip</button>
+                <button class="quick-msg" data-msg="Tell me about destinations">🌍 Destinations</button>
+            </div>
+        </div>
+
+        <!-- Support Ticket Section -->
+        <div class="cs-section" id="ticketSection">
+            <h2 class="section-title">🎫 Submit a Support Ticket</h2>
+            <div class="ticket-form">
+                <form id="supportTicketForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name *</label>
+                            <input type="text" id="ticketName" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" id="ticketEmail" required placeholder="john@example.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Booking ID (Optional)</label>
+                            <input type="text" id="ticketBookingId" placeholder="e.g., BK001234">
+                        </div>
+                        <div class="form-group">
+                            <label>Issue Type *</label>
+                            <select id="ticketType" required>
+                                <option value="">Select issue type</option>
+                                <option value="booking">Booking Issue</option>
+                                <option value="payment">Payment Problem</option>
+                                <option value="cancellation">Cancellation Request</option>
+                                <option value="refund">Refund Request</option>
+                                <option value="destination">Destination Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <input type="text" id="ticketSubject" required placeholder="Brief description of your issue">
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea id="ticketMessage" rows="5" required placeholder="Please provide details about your issue..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <div class="priority-options">
+                            <label class="priority-option">
+                                <input type="radio" name="priority" value="low"> Low
+                            </label>
+                            <label class="priority-option">
+                                <input type="radio" name="priority" value="normal" checked> Normal
+                            </label>
+                            <label class="priority-option">
+                                <input type="radio" name="priority" value="high"> High
+                            </label>
+                            <label class="priority-option">
+                                <input type="radio" name="priority" value="urgent"> Urgent
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-ticket-btn">Submit Ticket 🎫</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="cs-section" id="contactSection">
+            <h2 class="section-title">📞 Contact Information</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email Us</h3>
+                    <p>General Inquiries:</p>
+                    <a href="mailto:bdevc224@gmail.com" class="contact-link">bdevc224@gmail.com</a>
+                    <p>Support:</p>
+                    <a href="mailto:support@bdevcnature.com" class="contact-link">support@bdevcnature.com</a>
+                    <p>Bookings:</p>
+                    <a href="mailto:bookings@bdevcnature.com" class="contact-link">bookings@bdevcnature.com</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">📞</div>
+                    <h3>Call Us</h3>
+                    <p>24/7 Customer Support:</p>
+                    <a href="tel:+2349166226690" class="contact-link">+234 916 622 6690</a>
+                    <p>USA Office:</p>
+                    <a href="tel:+15551234567" class="contact-link">+1 (555) 123-4567</a>
+                    <p>UK Office:</p>
+                    <a href="tel:+442012345678" class="contact-link">+44 20 1234 5678</a>
+                    <p class="hours">Mon-Sat: 9AM-9PM EST</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our support team</p>
+                    <button class="live-chat-btn" onclick="openLiveChat()">Start Live Chat 💬</button>
+                    <p class="response-time">Average response: &lt; 2 minutes</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">🌐</div>
+                    <h3>Social Media</h3>
+                    <a href="#" class="social-link">📘 Facebook: @bdevcnature</a>
+                    <a href="#" class="social-link">📸 Instagram: @bdevc_nature</a>
+                    <a href="#" class="social-link">🐦 Twitter: @bdevcnature</a>
+                    <a href="#" class="social-link">💼 LinkedIn: BDevC Nature</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Business Hours -->
+        <div class="business-hours">
+            <h3>🕐 Business Hours</h3>
+            <div class="hours-grid">
+                <div class="hour-item">
+                    <span>Monday - Friday:</span>
+                    <strong>9:00 AM - 9:00 PM EST</strong>
+                </div>
+                <div class="hour-item">
+                    <span>Saturday:</span>
+                    <strong>10:00 AM - 6:00 PM EST</strong>
+                </div>
+                <div class="hour-item">
+                    <span>Sunday:</span>
+                    <strong>Closed (Emergency support only)</strong>
+                </div>
+                <div class="hour-item">
+                    <span>24/7 Emergency:</span>
+                    <strong>+234 916 622 6690</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- Response Status -->
+        <div class="response-status">
+            <div class="status-indicator">
+                <span class="status-dot green"></span>
+                <span>Support team is online</span>
+            </div>
+            <div class="status-stats">
+                <span>⭐ 4.9/5 Customer Rating</span>
+                <span>⚡ Avg. response: 2min</span>
+                <span>✅ 98% Satisfaction Rate</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">✅</div>
+            <h3>Ticket Submitted Successfully!</h3>
+            <p>Thank you for contacting us. Our support team will respond within 24 hours.</p>
+            <p>Ticket #: <strong id="ticketNumber"></strong></p>
+            <button onclick="closeModal()" class="modal-btn">OK</button>
+        </div>
+    </div>
+
+    <script src="customer-service.js"></script>
+</body>
+</html>

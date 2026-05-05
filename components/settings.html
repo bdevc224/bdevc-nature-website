@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>BDevC Nature | Settings</title>
+    <link rel="stylesheet" href="settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Images/peacock.JPG">
+</head>
+<body>
+    <div class="settings-container">
+        <!-- Header -->
+        <header class="settings-header">
+            <button class="back-btn" onclick="goBack()">←</button>
+            <h1>Settings</h1>
+            <button class="save-all-btn" id="saveAllBtn">Save All</button>
+        </header>
+
+        <!-- Settings Categories -->
+        <div class="settings-nav">
+            <button class="settings-nav-btn active" data-section="profile">👤 Profile</button>
+            <button class="settings-nav-btn" data-section="preferences">🎨 Preferences</button>
+            <button class="settings-nav-btn" data-section="notifications">🔔 Notifications</button>
+            <button class="settings-nav-btn" data-section="privacy">🔒 Privacy</button>
+            <button class="settings-nav-btn" data-section="travel">✈️ Travel</button>
+            <button class="settings-nav-btn" data-section="accessibility">♿ Accessibility</button>
+            <button class="settings-nav-btn" data-section="data">💾 Data</button>
+            <button class="settings-nav-btn" data-section="security">🛡️ Security</button>
+        </div>
+
+        <!-- Settings Content -->
+        <div class="settings-content">
+            <!-- Profile Settings -->
+            <div class="settings-section active" id="profileSection">
+                <h2>Profile Information</h2>
+                <div class="avatar-section">
+                    <div class="avatar-preview">
+                        <div class="avatar" id="avatarPreview">🌿</div>
+                        <button class="change-avatar-btn" id="changeAvatarBtn">Change Avatar</button>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name" class="setting-input">
+                </div>
+                <div class="setting-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="your@email.com" class="setting-input">
+                </div>
+                <div class="setting-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phone" placeholder="+1234567890" class="setting-input">
+                </div>
+                <div class="setting-group">
+                    <label>Bio / Travel Interests</label>
+                    <textarea id="bio" rows="3" placeholder="Tell us about your travel interests..." class="setting-textarea"></textarea>
+                </div>
+                <div class="setting-group">
+                    <label>Preferred Language</label>
+                    <select id="language" class="setting-select">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="fr">Français</option>
+                        <option value="de">Deutsch</option>
+                        <option value="zh">中文</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Preferences Settings -->
+            <div class="settings-section" id="preferencesSection">
+                <h2>Appearance & Preferences</h2>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Dark Mode</label>
+                            <p class="setting-desc">Switch between light and dark theme</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="darkMode">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Font Size</label>
+                            <p class="setting-desc">Adjust text size for better readability</p>
+                        </div>
+                        <select id="fontSize" class="setting-select-small">
+                            <option value="small">Small</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="large">Large</option>
+                            <option value="xlarge">Extra Large</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Compact View</label>
+                            <p class="setting-desc">Show more content with compact spacing</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="compactView">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Animations</label>
+                            <p class="setting-desc">Enable/disable UI animations</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="animations" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Homepage Layout</label>
+                    <div class="layout-options">
+                        <label class="layout-option">
+                            <input type="radio" name="layout" value="grid" checked> Grid View
+                        </label>
+                        <label class="layout-option">
+                            <input type="radio" name="layout" value="list"> List View
+                        </label>
+                        <label class="layout-option">
+                            <input type="radio" name="layout" value="cards"> Card View
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Currency Display</label>
+                    <select id="currency" class="setting-select">
+                        <option value="USD">USD ($)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="GBP">GBP (£)</option>
+                        <option value="NGN">NGN (₦)</option>
+                        <option value="CAD">CAD (C$)</option>
+                        <option value="AUD">AUD (A$)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Notifications Settings -->
+            <div class="settings-section" id="notificationsSection">
+                <h2>Notification Preferences</h2>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Email Notifications</label>
+                            <p class="setting-desc">Receive updates via email</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="emailNotifications" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Push Notifications</label>
+                            <p class="setting-desc">Browser push notifications</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="pushNotifications">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>SMS Alerts</label>
+                            <p class="setting-desc">Text message alerts for bookings</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="smsAlerts">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <h3>When to notify me:</h3>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="notifyBooking"> Booking confirmations
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="notifyReminders" checked> Trip reminders
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="notifyOffers" checked> Special offers & deals
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="notifyNewsletter"> Monthly newsletter
+                    </label>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="notifyConservation"> Conservation updates
+                    </label>
+                </div>
+            </div>
+
+            <!-- Privacy Settings -->
+            <div class="settings-section" id="privacySection">
+                <h2>Privacy & Data</h2>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Profile Visibility</label>
+                            <p class="setting-desc">Who can see your profile</p>
+                        </div>
+                        <select id="profileVisibility" class="setting-select-small">
+                            <option value="public">Public</option>
+                            <option value="private" selected>Private</option>
+                            <option value="friends">Only Friends</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Show Email</label>
+                            <p class="setting-desc">Display email on your profile</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="showEmail">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Share Activity</label>
+                            <p class="setting-desc">Share your bookings and reviews</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="shareActivity" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Cookie Preferences</label>
+                            <p class="setting-desc">Manage cookie settings</p>
+                        </div>
+                        <button class="settings-btn" id="cookieSettings">Manage Cookies</button>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <button class="settings-btn danger" id="downloadDataBtn">Download My Data</button>
+                    <button class="settings-btn danger" id="deleteAccountBtn">Delete Account</button>
+                </div>
+            </div>
+
+            <!-- Travel Settings -->
+            <div class="settings-section" id="travelSection">
+                <h2>Travel Preferences</h2>
+                <div class="setting-group">
+                    <label>Preferred Travel Type</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="adventure"> Adventure
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="relaxation"> Relaxation
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="cultural"> Cultural
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="wildlife"> Wildlife
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="hiking"> Hiking
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Budget Range (per person)</label>
+                    <select id="budget" class="setting-select">
+                        <option value="economy">Economy ($500-1000)</option>
+                        <option value="standard" selected>Standard ($1000-2500)</option>
+                        <option value="premium">Premium ($2500-5000)</option>
+                        <option value="luxury">Luxury ($5000+)</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label>Preferred Group Size</label>
+                    <select id="groupSize" class="setting-select">
+                        <option value="solo">Solo Travel</option>
+                        <option value="couple" selected>Couple</option>
+                        <option value="small">Small Group (3-6)</option>
+                        <option value="medium">Medium Group (7-15)</option>
+                        <option value="large">Large Group (16+)</option>
+                    </select>
+                </div>
+                <div class="setting-group">
+                    <label>Travel Season Preference</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="spring"> Spring
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="summer"> Summer
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="autumn"> Autumn
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" value="winter"> Winter
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Accommodation Preference</label>
+                    <select id="accommodation" class="setting-select">
+                        <option value="budget">Budget Hostels</option>
+                        <option value="standard" selected>Standard Hotels</option>
+                        <option value="premium">Premium Resorts</option>
+                        <option value="luxury">Luxury Eco-Lodges</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Accessibility Settings -->
+            <div class="settings-section" id="accessibilitySection">
+                <h2>Accessibility Options</h2>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>High Contrast Mode</label>
+                            <p class="setting-desc">Increase contrast for better visibility</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="highContrast">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Screen Reader Support</label>
+                            <p class="setting-desc">Optimize for screen readers</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="screenReader">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Reduce Motion</label>
+                            <p class="setting-desc">Minimize animations and transitions</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="reduceMotion">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <label>Keyboard Shortcuts</label>
+                    <div class="shortcuts-list">
+                        <div class="shortcut-item">
+                            <kbd>Ctrl + K</kbd> <span>Search</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Ctrl + H</kbd> <span>Home</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Ctrl + B</kbd> <span>Bookings</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <kbd>Ctrl + S</kbd> <span>Settings</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Settings -->
+            <div class="settings-section" id="dataSection">
+                <h2>Data Management</h2>
+                <div class="setting-group">
+                    <button class="settings-btn" id="clearCacheBtn">Clear Cache</button>
+                    <p class="setting-desc">Clear temporary files and cached data</p>
+                </div>
+                <div class="setting-group">
+                    <button class="settings-btn" id="clearSearchHistoryBtn">Clear Search History</button>
+                    <p class="setting-desc">Remove all search history</p>
+                </div>
+                <div class="setting-group">
+                    <button class="settings-btn" id="resetPreferencesBtn">Reset All Preferences</button>
+                    <p class="setting-desc">Reset all settings to default</p>
+                </div>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Auto-save Settings</label>
+                            <p class="setting-desc">Automatically save changes</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="autoSave" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <h3>Data Usage</h3>
+                    <div class="data-stats">
+                        <div class="stat-item">
+                            <span>Cache Size:</span>
+                            <strong id="cacheSize">0 MB</strong>
+                        </div>
+                        <div class="stat-item">
+                            <span>Last Backup:</span>
+                            <strong id="lastBackup">Never</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Settings -->
+            <div class="settings-section" id="securitySection">
+                <h2>Security</h2>
+                <div class="setting-group">
+                    <div class="setting-row">
+                        <div>
+                            <label>Two-Factor Authentication</label>
+                            <p class="setting-desc">Add an extra layer of security</p>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="twoFactor">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="setting-group">
+                    <button class="settings-btn" id="changePasswordBtn">Change Password</button>
+                </div>
+                <div class="setting-group">
+                    <button class="settings-btn" id="manageSessionsBtn">Manage Active Sessions</button>
+                </div>
+                <div class="setting-group">
+                    <h3>Recent Login Activity</h3>
+                    <div class="login-history" id="loginHistory">
+                        <div class="login-item">
+                            <span>🌐 Chrome on Windows</span>
+                            <span>Today, 10:30 AM</span>
+                        </div>
+                        <div class="login-item">
+                            <span>📱 Mobile App</span>
+                            <span>Yesterday, 8:15 PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="settings-actions">
+            <button class="cancel-btn" id="cancelBtn">Cancel</button>
+            <button class="apply-btn" id="applyBtn">Apply Changes</button>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">✅</div>
+            <h3>Settings Saved!</h3>
+            <p>Your preferences have been updated successfully.</p>
+            <button onclick="closeModal()" class="modal-btn">OK</button>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <div class="modal-icon">⚠️</div>
+            <h3>Confirm Action</h3>
+            <p id="confirmMessage">Are you sure you want to proceed?</p>
+            <div class="modal-buttons">
+                <button onclick="closeConfirmModal()" class="modal-btn cancel">Cancel</button>
+                <button id="confirmActionBtn" class="modal-btn confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>

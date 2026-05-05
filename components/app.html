@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>BDevC Nature | Mobile App</title>
+    <link rel="stylesheet" href="app.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Images/peacock.JPG">
+</head>
+<body>
+    <!-- App Container -->
+    <div class="app-container">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span class="time">9:41</span>
+            <div class="status-icons">
+                <span>📶</span>
+                <span>📱</span>
+                <span>🔋</span>
+            </div>
+        </div>
+
+        <!-- App Header -->
+        <header class="app-header">
+            <button class="menu-btn" id="menuBtn">☰</button>
+            <div class="logo">
+                <h2>BDevC <span class="highlight">Nature</span></h2>
+            </div>
+            <button class="notifications-btn" id="notificationsBtn">🔔</button>
+        </header>
+
+        <!-- Side Drawer Menu (Mobile Style) -->
+        <div class="drawer-overlay" id="drawerOverlay"></div>
+        <div class="drawer-menu" id="drawerMenu">
+            <div class="drawer-header">
+                <div class="user-avatar-large">🌿</div>
+                <h3>Nature Explorer</h3>
+                <p>explorer@nature.com</p>
+            </div>
+            <nav class="drawer-nav">
+                <a href="#" class="drawer-item active" data-page="home">
+                    <span class="drawer-icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="#" class="drawer-item" data-page="explore">
+                    <span class="drawer-icon">🌍</span>
+                    <span>Explore</span>
+                </a>
+                <a href="#" class="drawer-item" data-page="bookings">
+                    <span class="drawer-icon">📅</span>
+                    <span>My Bookings</span>
+                </a>
+                <a href="#" class="drawer-item" data-page="facts">
+                    <span class="drawer-icon">💡</span>
+                    <span>Nature Facts</span>
+                </a>
+                <a href="#" class="drawer-item" data-page="conservation">
+                    <span class="drawer-icon">🌱</span>
+                    <span>Conservation</span>
+                </a>
+                <a href="#" class="drawer-item" data-page="chat">
+                    <span class="drawer-icon">💬</span>
+                    <span>NatureBot</span>
+                </a>
+                <a href="#" class="drawer-item" data-page="profile">
+                    <span class="drawer-icon">👤</span>
+                    <span>Profile</span>
+                </a>
+                <a href="#" class="drawer-item" data-page="settings">
+                    <span class="drawer-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            <div class="drawer-footer">
+                <a href="index.html" class="drawer-item">
+                    <span class="drawer-icon">🚪</span>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main App Content -->
+        <div class="app-content" id="appContent">
+            <!-- Home Page -->
+            <div class="app-page active" id="homePage">
+                <!-- Welcome Banner -->
+                <div class="welcome-banner">
+                    <div class="welcome-text">
+                        <h1>Welcome back, 🌿</h1>
+                        <p>Ready for your next nature adventure?</p>
+                    </div>
+                    <div class="welcome-icon">🌍</div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <div class="action-card" onclick="navigateToPage('explore')">
+                        <div class="action-icon">🔍</div>
+                        <span>Explore</span>
+                    </div>
+                    <div class="action-card" onclick="navigateToPage('bookings')">
+                        <div class="action-icon">📅</div>
+                        <span>Bookings</span>
+                    </div>
+                    <div class="action-card" onclick="navigateToPage('facts')">
+                        <div class="action-icon">💡</div>
+                        <span>Learn</span>
+                    </div>
+                    <div class="action-card" onclick="navigateToPage('chat')">
+                        <div class="action-icon">💬</div>
+                        <span>Chat</span>
+                    </div>
+                </div>
+
+                <!-- Featured Destinations -->
+                <div class="section-header">
+                    <h3>🔥 Featured Destinations</h3>
+                    <a href="#" onclick="navigateToPage('explore')">See All →</a>
+                </div>
+                <div class="horizontal-scroll" id="featuredDestinations">
+                    <!-- Dynamic content -->
+                </div>
+
+                <!-- Conservation Tip of the Day -->
+                <div class="tip-card">
+                    <div class="tip-icon">🌱</div>
+                    <div class="tip-content">
+                        <h4>Conservation Tip of the Day</h4>
+                        <p id="dailyTip">Plant native species in your garden to support local wildlife!</p>
+                    </div>
+                </div>
+
+                <!-- Upcoming Adventures -->
+                <div class="section-header">
+                    <h3>📅 Upcoming Adventures</h3>
+                    <a href="#" onclick="navigateToPage('bookings')">View All →</a>
+                </div>
+                <div id="upcomingBookings"></div>
+            </div>
+
+            <!-- Explore Page -->
+            <div class="app-page" id="explorePage">
+                <div class="search-bar">
+                    <input type="text" id="searchDestinations" placeholder="Search destinations..." class="search-input">
+                    <button class="search-btn">🔍</button>
+                </div>
+                
+                <div class="category-filters">
+                    <button class="filter-chip active" data-category="all">All</button>
+                    <button class="filter-chip" data-category="rainforest">Rainforest</button>
+                    <button class="filter-chip" data-category="mountains">Mountains</button>
+                    <button class="filter-chip" data-category="beach">Beach/Reef</button>
+                    <button class="filter-chip" data-category="safari">Safari</button>
+                </div>
+                
+                <div class="destinations-list" id="destinationsList"></div>
+            </div>
+
+            <!-- Bookings Page -->
+            <div class="app-page" id="bookingsPage">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+                    <button class="tab-btn" data-tab="past">Past</button>
+                    <button class="tab-btn" data-tab="cancelled">Cancelled</button>
+                </div>
+                <div id="bookingsList"></div>
+            </div>
+
+            <!-- Nature Facts Page -->
+            <div class="app-page" id="factsPage">
+                <div class="fact-card-large" id="factCard">
+                    <div class="fact-icon">🌍</div>
+                    <p class="fact-text" id="factText">Click the button to discover amazing nature facts!</p>
+                    <button class="fact-btn" id="newFactBtn">New Fact 🌟</button>
+                </div>
+                <div class="fact-categories">
+                    <h3>Categories</h3>
+                    <div class="category-grid">
+                        <div class="category-chip" data-fact-type="animals">🐘 Animals</div>
+                        <div class="category-chip" data-fact-type="plants">🌿 Plants</div>
+                        <div class="category-chip" data-fact-type="ocean">🌊 Ocean</div>
+                        <div class="category-chip" data-fact-type="space">🌌 Space</div>
+                        <div class="category-chip" data-fact-type="weather">⛈️ Weather</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conservation Page -->
+            <div class="app-page" id="conservationPage">
+                <div class="stats-grid-app">
+                    <div class="stat-card-app">
+                        <div class="stat-value" id="treesCount">5,234</div>
+                        <div class="stat-label">Trees Planted</div>
+                    </div>
+                    <div class="stat-card-app">
+                        <div class="stat-value" id="plasticCount">12,450</div>
+                        <div class="stat-label">Plastic Saved (kg)</div>
+                    </div>
+                    <div class="stat-card-app">
+                        <div class="stat-value" id="wildlifeCount">1,234</div>
+                        <div class="stat-label">Wildlife Protected</div>
+                    </div>
+                </div>
+                
+                <div class="challenges-section">
+                    <h3>🌱 Conservation Challenges</h3>
+                    <div class="challenge-list" id="challengeList"></div>
+                </div>
+                
+                <div class="tips-section">
+                    <h3>💚 Tips to Help Nature</h3>
+                    <div class="tips-list" id="tipsList"></div>
+                </div>
+            </div>
+
+            <!-- Chat/NatureBot Page -->
+            <div class="app-page" id="chatPage">
+                <div class="chat-messages-app" id="chatMessagesApp">
+                    <div class="message bot">
+                        <div class="message-avatar">🌿</div>
+                        <div class="message-bubble">
+                            Hello! I'm NatureBot! Ask me anything about nature, travel, or conservation! 🌍
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-app">
+                    <input type="text" id="chatInputApp" placeholder="Ask me about nature..." class="chat-input-field">
+                    <button id="sendChatBtn" class="send-chat-btn">Send</button>
+                </div>
+                <div class="quick-chips">
+                    <button class="chip" data-question="Tell me a nature fact">🌍 Nature Fact</button>
+                    <button class="chip" data-question="Suggest a place to visit">📍 Travel</button>
+                    <button class="chip" data-question="How can I help nature">🌱 Conservation</button>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div class="app-page" id="profilePage">
+                <div class="profile-header">
+                    <div class="profile-avatar">🌿</div>
+                    <h2>Nature Explorer</h2>
+                    <p>explorer@nature.com</p>
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Trips</div>
+                        </div>
+                        <div class="profile-stat">
+                            <div class="stat-number">8</div>
+                            <div class="stat-label">Countries</div>
+                        </div>
+                        <div class="profile-stat">
+                            <div class="stat-number">156</div>
+                            <div class="stat-label">Days</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-menu">
+                    <div class="menu-item" onclick="navigateToPage('bookings')">
+                        <span>📅</span>
+                        <span>My Bookings</span>
+                        <span>→</span>
+                    </div>
+                    <div class="menu-item" onclick="navigateToPage('facts')">
+                        <span>💡</span>
+                        <span>Saved Facts</span>
+                        <span>→</span>
+                    </div>
+                    <div class="menu-item" onclick="navigateToPage('conservation')">
+                        <span>🌱</span>
+                        <span>My Impact</span>
+                        <span>→</span>
+                    </div>
+                    <div class="menu-item" onclick="navigateToPage('settings')">
+                        <span>⚙️</span>
+                        <span>Settings</span>
+                        <span>→</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div class="app-page" id="settingsPage">
+                <div class="settings-list">
+                    <div class="setting-item">
+                        <span>🌙 Dark Mode</span>
+                        <label class="switch-app">
+                            <input type="checkbox" id="darkModeToggle">
+                            <span class="slider-app"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <span>🔔 Notifications</span>
+                        <label class="switch-app">
+                            <input type="checkbox" id="notificationsToggleApp" checked>
+                            <span class="slider-app"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <span>📱 Offline Mode</span>
+                        <label class="switch-app">
+                            <input type="checkbox" id="offlineToggle">
+                            <span class="slider-app"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <span>🗺️ Save Data</span>
+                        <label class="switch-app">
+                            <input type="checkbox" id="saveDataToggle">
+                            <span class="slider-app"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-actions">
+                    <button class="settings-btn" id="clearDataBtn">Clear Cache</button>
+                    <button class="settings-btn danger" id="logoutAppBtn">Logout</button>
+                </div>
+                <div class="app-version">
+                    Version 2.0.0 | © 2024 BDevC Nature
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Navigation Bar -->
+        <nav class="bottom-nav">
+            <div class="nav-item-app active" data-nav="home">
+                <span class="nav-icon-app">🏠</span>
+                <span class="nav-label">Home</span>
+            </div>
+            <div class="nav-item-app" data-nav="explore">
+                <span class="nav-icon-app">🔍</span>
+                <span class="nav-label">Explore</span>
+            </div>
+            <div class="nav-item-app" data-nav="bookings">
+                <span class="nav-icon-app">📅</span>
+                <span class="nav-label">Trips</span>
+            </div>
+            <div class="nav-item-app" data-nav="facts">
+                <span class="nav-icon-app">💡</span>
+                <span class="nav-label">Learn</span>
+            </div>
+            <div class="nav-item-app" data-nav="profile">
+                <span class="nav-icon-app">👤</span>
+                <span class="nav-label">Profile</span>
+            </div>
+        </nav>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

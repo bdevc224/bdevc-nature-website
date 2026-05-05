@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>BDevC Nature | Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Images/peacock.JPG">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <h3>BDevC <span class="highlight">Nature</span></h3>
+                </div>
+                <button class="close-sidebar" id="closeSidebar">✕</button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-page="overview">
+                    <span class="nav-icon">📊</span>
+                    <span>Overview</span>
+                </a>
+                <a href="#" class="nav-item" data-page="analytics">
+                    <span class="nav-icon">📈</span>
+                    <span>Analytics</span>
+                </a>
+                <a href="#" class="nav-item" data-page="destinations">
+                    <span class="nav-icon">🌍</span>
+                    <span>Destinations</span>
+                </a>
+                <a href="#" class="nav-item" data-page="bookings">
+                    <span class="nav-icon">📅</span>
+                    <span>Bookings</span>
+                </a>
+                <a href="#" class="nav-item" data-page="services">
+                    <span class="nav-icon">🛎️</span>
+                    <span>Services</span>
+                </a>
+                <a href="#" class="nav-item" data-page="messages">
+                    <span class="nav-icon">💬</span>
+                    <span>Messages</span>
+                </a>
+                <a href="#" class="nav-item" data-page="conservation">
+                    <span class="nav-icon">🌱</span>
+                    <span>Conservation</span>
+                </a>
+                <a href="#" class="nav-item" data-page="settings">
+                    <span class="nav-icon">⚙️</span>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="/index.html" class="nav-item">
+                    <span class="nav-icon">🏠</span>
+                    <span>Back to Site</span>
+                </a>
+                <button id="logoutBtn" class="logout-btn">
+                    <span class="nav-icon">🚪</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="dashboard-header">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+                <div class="header-search">
+                    <input type="text" placeholder="Search destinations, bookings..." id="searchInput">
+                    <button class="search-btn">🔍</button>
+                </div>
+                <div class="header-actions">
+                    <button class="theme-toggle" id="themeToggle">🌙 Dark Mode</button>
+                    <div class="user-menu">
+                                <img src="/Images/nature19.JPG" alt="User" class="user-avatar">
+                        <span class="user-name">Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content" id="dashboardContent">
+                <!-- Overview Page -->
+                <div class="page active" id="overviewPage">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">🌍</div>
+                            <div class="stat-info">
+                                <h3>Total Destinations</h3>
+                                <p class="stat-number" id="totalDestinations">10</p>
+                                <span class="stat-change positive">+2 this month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📅</div>
+                            <div class="stat-info">
+                                <h3>Total Bookings</h3>
+                                <p class="stat-number" id="totalBookings">247</p>
+                                <span class="stat-change positive">+18% this week</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-info">
+                                <h3>Active Users</h3>
+                                <p class="stat-number" id="activeUsers">1,234</p>
+                                <span class="stat-change positive">+5.4% increase</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-info">
+                                <h3>Revenue</h3>
+                                <p class="stat-number" id="revenue">$42,580</p>
+                                <span class="stat-change positive">+12.3% increase</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💬</div>
+                            <div class="stat-info">
+                                <h3>Chat Messages</h3>
+                                <p class="stat-number" id="chatMessages">1,892</p>
+                                <span class="stat-change positive">+234 this week</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🌱</div>
+                            <div class="stat-info">
+                                <h3>Trees Planted</h3>
+                                <p class="stat-number" id="treesPlanted">5,234</p>
+                                <span class="stat-change positive">+890 this month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="charts-grid">
+                        <div class="chart-card">
+                            <h3>Popular Destinations</h3>
+                            <canvas id="destinationsChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Monthly Bookings</h3>
+                            <canvas id="bookingsChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>User Engagement</h3>
+                            <canvas id="engagementChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Revenue Trend</h3>
+                            <canvas id="revenueChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="recent-activities">
+                        <h3>Recent Activities</h3>
+                        <div class="activities-list" id="activitiesList">
+                            <div class="activity-item">
+                                <div class="activity-icon">📅</div>
+                                <div class="activity-details">
+                                    <p><strong>New Booking</strong> - Amazon Rainforest Tour</p>
+                                    <span>2 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">💬</div>
+                                <div class="activity-details">
+                                    <p><strong>Chat Message</strong> - User asked about Serengeti Safari</p>
+                                    <span>15 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">🌱</div>
+                                <div class="activity-details">
+                                    <p><strong>Conservation Milestone</strong> - 5000 trees planted!</p>
+                                    <span>1 hour ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Analytics Page -->
+                <div class="page" id="analyticsPage">
+                    <h2>Analytics Dashboard</h2>
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h4>Visitor Statistics</h4>
+                            <canvas id="visitorChart"></canvas>
+                        </div>
+                        <div class="analytics-card">
+                            <h4>Platform Usage</h4>
+                            <canvas id="platformChart"></canvas>
+                        </div>
+                        <div class="analytics-card full-width">
+                            <h4>Traffic Sources</h4>
+                            <canvas id="trafficChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destinations Page -->
+                <div class="page" id="destinationsPage">
+                    <div class="page-header">
+                        <h2>All Destinations</h2>
+                        <button class="add-btn" id="addDestinationBtn">+ Add Destination</button>
+                    </div>
+                    <div class="destinations-grid" id="destinationsGrid"></div>
+                </div>
+
+                <!-- Bookings Page -->
+                <div class="page" id="bookingsPage">
+                    <div class="page-header">
+                        <h2>Recent Bookings</h2>
+                        <div class="filters">
+                            <select id="statusFilter">
+                                <option value="all">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="confirmed">Confirmed</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="bookings-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Booking ID</th>
+                                    <th>Customer</th>
+                                    <th>Destination</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Amount</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="bookingsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Services Page -->
+                <div class="page" id="servicesPage">
+                    <h2>Our Services</h2>
+                    <div class="services-grid" id="servicesGrid"></div>
+                </div>
+
+                <!-- Messages Page -->
+                <div class="page" id="messagesPage">
+                    <div class="page-header">
+                        <h2>Chat Messages</h2>
+                        <button class="export-btn" id="exportMessagesBtn">Export Messages</button>
+                    </div>
+                    <div class="messages-list" id="messagesList"></div>
+                </div>
+
+                <!-- Conservation Page -->
+                <div class="page" id="conservationPage">
+                    <h2>Conservation Impact</h2>
+                    <div class="conservation-stats">
+                        <div class="impact-card">
+                            <div class="impact-icon">🌳</div>
+                            <div class="impact-info">
+                                <h3>Trees Planted</h3>
+                                <p class="impact-number">5,234</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 87%"></div>
+                                </div>
+                                <span>Goal: 6,000 trees</span>
+                            </div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-icon">♻️</div>
+                            <div class="impact-info">
+                                <h3>Plastic Waste Reduced</h3>
+                                <p class="impact-number">12,450 kg</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 62%"></div>
+                                </div>
+                                <span>Goal: 20,000 kg</span>
+                            </div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-icon">🐋</div>
+                            <div class="impact-info">
+                                <h3>Wildlife Protected</h3>
+                                <p class="impact-number">1,234</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 75%"></div>
+                                </div>
+                                <span>Species helped</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="conservation-tips">
+                        <h3>Conservation Tips for Users</h3>
+                        <ul id="conservationTips"></ul>
+                    </div>
+                </div>
+
+                <!-- Settings Page -->
+                <div class="page" id="settingsPage">
+                    <h2>Dashboard Settings</h2>
+                    <div class="settings-form">
+                        <div class="setting-group">
+                            <label>Site Name</label>
+                            <input type="text" value="BDevC Nature" id="siteName">
+                        </div>
+                        <div class="setting-group">
+                            <label>Admin Email</label>
+                            <input type="email" value="admin@bdevc.com" id="adminEmail">
+                        </div>
+                        <div class="setting-group">
+                            <label>Notifications</label>
+                            <label class="switch">
+                                <input type="checkbox" id="notificationsToggle" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-group">
+                            <label>Dark Mode Default</label>
+                            <label class="switch">
+                                <input type="checkbox" id="darkModeDefault">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        <button class="save-settings" id="saveSettings">Save Settings</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
