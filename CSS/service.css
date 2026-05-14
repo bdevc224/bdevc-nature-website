@@ -212,7 +212,16 @@ nav ul li a.active::after {
     position: relative;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
+    min-height: 300px;
     overflow: hidden;
+}
+
+/* Support older iOS */
+@supports not (height: 100dvh) {
+    .hero {
+        height: 100vh;
+    }
 }
 
 .hero video {
